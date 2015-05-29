@@ -61,14 +61,12 @@
   (swap! state assoc-in [:data :log] []))
 
 (defn append-to-log [roll]
-  (let [log (get-log)
-        info {:throw (get-throw-number) :roll roll}
-        newlog (conj log info)]
-    (js/console.log (str log))
-    (js/console.log  (str newlog))
-    (swap! state assoc-in [:data :log]
-           (into [] (take-last 10 newlog))))) ;; 10 rolls in the log
-
+  (when (not-empty roll)
+    (let [log (get-in @state [:data :log] [])
+          info {:throw (get-throw-number) :roll roll}
+          newlog (conj log info)]
+      (swap! state assoc-in [:data :log]
+             (into [] (take-last 10 newlog)))))) ;; 10 rolls in the log
 
 ;; Roll
 

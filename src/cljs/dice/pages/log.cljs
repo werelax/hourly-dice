@@ -7,17 +7,19 @@
 
 (defn die-item [d]
   [:li [:div.dice.xsm {:class (:color d)}
-        [:span.number (:number d)]]])
+        [:span.number (:number d)]] " "])
 
 (defn result-item [re]
-  [:ul
-   [:li (:throw re)]
+  [:ul.dice-list
+   [:li.title (:throw re)]
+   " "
    (doall (map die-item (:roll re)))])
 
 (defn page []
-  [:div.main-content
+  [:div.main-content.log
    [:h2.main-title "Throws"]
    (doall (map result-item (get-log)))
    [:div.footer-actions.c2-col
-    [:a.btn.btn-primary {:href "#/roll"} [:span.fa.fa-angle-left] "Back"]
-    [:a.btn.btn-secondary {:href "#" :on-click clear-button} "Clear"]]])
+    [:a.btn.btn-primary {:href "#/roll"} [:span.fa.fa-angle-left] [:span "Back"]]
+    " "
+    [:a.btn.btn-secondary {:href "#" :on-click clear-button} [:span "Clear"]]]])

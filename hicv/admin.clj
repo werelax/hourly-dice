@@ -16,4 +16,16 @@
    [:script {:src "assets/javascripts/lib/jquery-1.9.1.min.js"}]
    [:script {:src "assets/javascripts/script.js"}]]
   [:body
-   ]])
+   [:div.main-content
+    [:h2.main-title "Choose a dice"]
+    [:div.dice-row.blue
+     [:a.dice {:href "#"} [:span.number "5"]]
+     [:a.color {:href "#"} [:span "blue"]]
+     [:div.close [:a {:href "#"} [:span.fa.fa-close " CLEAR"]]]]
+    [:div.dice-row.green
+     [:a.dice {:href "#"} [:span.number "5"]]
+     [:a.color {:href "#"} [:span "green"]]
+     [:div.close [:a {:href "#"} [:span.fa.fa-close " CLEAR"]]]]
+    [:div.footer-actions.c2-col
+     [:a.btn.btn-primary {:href "#"} [:span "ADD"]]
+     [:a.btn.btn-secondary {:href "#"} [:span "ROLL"]]]]]])

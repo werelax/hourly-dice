@@ -28,5 +28,6 @@
      (doall (map dice-partial (get-dices)))
      [:div.footer-actions.c2-col
       [:a.btn.btn-primary {:href "#"
-                           :on-click insert-dice} "ADD"]
-      [:a.btn.btn-secondary {:href "#/roll"} "ROLL"]]]))
+                           :on-click insert-dice} [:span "ADD"]]
+      " "
+      [:a.btn.btn-secondary {:href "#/roll"} [:span "ROLL"]]]]))
