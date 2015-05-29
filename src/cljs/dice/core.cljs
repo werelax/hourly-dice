@@ -12,6 +12,12 @@
     (:import goog.History))
 
 ;; -------------------------
+;; Initial data
+(reset! state {:data {:dices []}
+               :config {:colors [:white :black :red :blue :green :yellow]
+                        :sides [6 8 12 20 4]}})
+
+;; -------------------------
 ;; Routes
 (secretary/set-config! :prefix "#")
 
