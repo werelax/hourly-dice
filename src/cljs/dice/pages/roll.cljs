@@ -14,7 +14,7 @@
      [:h2.main-title "Throw " (get-throw-number)]
      ;; [:div.dice-row.blue [:div.dice.xl [:span.number "5"]]]
      (doall (map result-item (get-result)))
-     [:div.footer-actions.3-col
+     [:div.footer-actions.c3-col
       [:a.btn.btn-primary {:href "#/"} [:span.fa.fa-angle-left] "Back"]
       [:a.btn.btn-secondary {:href "#/roll"
                              :on-click re-roll} "REROLL"]

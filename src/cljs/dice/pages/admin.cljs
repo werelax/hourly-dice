@@ -26,7 +26,7 @@
     [:div.main-content
      [:h2.main-title "Choose a dice"]
      (doall (map dice-partial (get-dices)))
-     [:div.footer-actions
+     [:div.footer-actions.c2-col
       [:a.btn.btn-primary {:href "#"
                            :on-click insert-dice} "ADD"]
       [:a.btn.btn-secondary {:href "#/roll"} "ROLL"]]]))

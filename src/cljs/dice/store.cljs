@@ -1,8 +1,16 @@
 (ns dice.store
   (:require [dice.state :refer [state]]))
 
+;; -------------------------
+;; Initial data
+(reset! state {:data {:dices [] :log [] :result nil :throws 0}
+               :config {:colors ["green" "blue" "orange" "pink"]
+                        :sides [6 8 12 20 4]}})
+
 (defonce id (atom 0))
 
+;;-------------------------
+;; Domain functions
 (declare get-throw-number)
 
 ;; Admin

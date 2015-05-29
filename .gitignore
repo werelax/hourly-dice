@@ -11,5 +11,4 @@ pom.xml.asc
 /out
 /.repl
 /figwheel_server.log
-/hicv/
 /maqueta/

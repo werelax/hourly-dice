@@ -18,6 +18,6 @@
   [:div.main-content
    [:h2.main-title "Throws"]
    (doall (map result-item (get-log)))
-   [:div.footer-actions
+   [:div.footer-actions.c2-col
     [:a.btn.btn-primary {:href "#/roll"} [:span.fa.fa-angle-left] "Back"]
     [:a.btn.btn-secondary {:href "#" :on-click clear-button} "Clear"]]])

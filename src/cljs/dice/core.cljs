@@ -12,12 +12,6 @@
     (:import goog.History))
 
 ;; -------------------------
-;; Initial data
-(reset! state {:data {:dices [] :log [] :result nil :throws 0}
-               :config {:colors ["green" "blue" "orange" "pink"]
-                        :sides [6 8 12 20 4]}})
-
-;; -------------------------
 ;; Routes
 (secretary/set-config! :prefix "#")
 
@@ -42,7 +36,7 @@
     (.setEnabled true)))
 
 ;; -------------------------
-;; Views
+;; Root view
 
 (defn current-page []
   [:div [(session/get :current-page)]])
