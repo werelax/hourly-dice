@@ -18,6 +18,7 @@
                  [compojure "1.3.3"]
                  [hiccup "1.0.5"]
                  [environ "1.0.0"]
+                 [hiccup-bridge "1.0.1"]
                  [org.clojure/clojurescript "0.0-3291" :scope "provided"]
                  [secretary "1.2.3"]]
 

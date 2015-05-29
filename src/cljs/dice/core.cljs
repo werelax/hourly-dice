@@ -3,32 +3,26 @@
               [reagent.session :as session]
               [secretary.core :as secretary :include-macros true]
               [goog.events :as events]
-              [goog.history.EventType :as EventType])
+              [goog.history.EventType :as EventType]
+              ;; dice
+              [dice.state :refer [state]]
+              [dice.pages.admin :as admin]
+              [dice.pages.roll :as roll]
+              [dice.pages.log :as log])
     (:import goog.History))
-
-;; -------------------------
-;; Views
-
-(defn home-page []
-  [:div [:h2 "Welcome to dice"]
-   [:div [:a {:href "#/about"} "go to about page"]]])
-
-(defn about-page []
-  [:div [:h2 "About dice"]
-   [:div [:a {:href "#/"} "go to the home page"]]])
-
-(defn current-page []
-  [:div [(session/get :current-page)]])
 
 ;; -------------------------
 ;; Routes
 (secretary/set-config! :prefix "#")
 
 (secretary/defroute "/" []
-  (session/put! :current-page #'home-page))
+  (session/put! :current-page #'admin/page))
 
-(secretary/defroute "/about" []
-  (session/put! :current-page #'about-page))
+(secretary/defroute "/roll" []
+  (session/put! :current-page #'roll/page))
+
+(secretary/defroute "/log" []
+  (session/put! :current-page #'log/page))
 
 ;; -------------------------
 ;; History
@@ -40,6 +34,12 @@
      (fn [event]
        (secretary/dispatch! (.-token event))))
     (.setEnabled true)))
+
+;; -------------------------
+;; Views
+
+(defn current-page []
+  [:div [(session/get :current-page)]])
 
 ;; -------------------------
 ;; Initialize app
