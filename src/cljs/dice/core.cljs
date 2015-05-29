@@ -13,7 +13,7 @@
 
 ;; -------------------------
 ;; Initial data
-(reset! state {:data {:dices [] :log []}
+(reset! state {:data {:dices [] :log [] :result nil :throws 0}
                :config {:colors ["green" "blue" "orange" "pink"]
                         :sides [6 8 12 20 4]}})
 
