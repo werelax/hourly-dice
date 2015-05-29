@@ -26,9 +26,9 @@
 (defn without-dice [id]
   (filterv #(not= (:id %) id) (get-dices)))
 
-(defn insert-dice [e]
-  (.preventDefault e)
-  (set-dices (conj (get-dices) (make-dice))))
+(defn insert-dice
+  ([e &r] (.preventDefault e) (insert-dice))
+  ([] (set-dices (conj (get-dices) (make-dice)))))
 
 (defn remove-dice [id e]
   (.preventDefault e)
@@ -41,23 +41,29 @@
     (set-dices (replace-dice old new))))
 
 (defn dice-partial [d]
-  (let [id (:id d)]
-    [:div.dice-row.blue
+  (let [id (:id d)
+        color (-> d :color first str)]
+    [:div.dice-row {:class color}
      [:a.dice {:href "#"
                :on-click (partial rotate-attr :sides id)}
       [:span.number (first (:sides d))]]
      [:a.color {:href "#"
                 :on-click (partial rotate-attr :color id)}
-      [:span (-> d :color first str)]]
+      [:span color]]
      [:div.close [:a {:href "#"
                       :on-click (partial remove-dice id)}
                   [:span.fa.fa-close]]]]))
 
 (defn page []
-  [:div.main-content
-   [:h2.main-title "Choose a dice"]
-   (doall (map dice-partial (get-dices)))
-   [:div.footer-actions
-    [:a.btn.btn-primary {:href "#"
-                         :on-click insert-dice} "ADD"]
-    [:a.btn.btn-secondary {:href "#/roll"} "ROLL"]]])
+  ;; emtpy start is ugly...
+  (if (empty? (get-dices))
+    (insert-dice))
+  (clear-result)
+  (fn []
+    [:div.main-content
+     [:h2.main-title "Choose a dice"]
+     (doall (map dice-partial (get-dices)))
+     [:div.footer-actions
+      [:a.btn.btn-primary {:href "#"
+                           :on-click insert-dice} "ADD"]
+      [:a.btn.btn-secondary {:href "#/roll"} "ROLL"]]]))
