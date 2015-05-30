@@ -1,5 +1,6 @@
 (ns dice.pages.log
-  (:require [dice.store :refer [get-log clear-log]]))
+  (:require [dice.store :refer [get-log clear-log]]
+            [dice.state :refer [state]]))
 
 (defn clear-button [e &r]
   (.preventDefault e)
@@ -16,11 +17,13 @@
    (doall (map die-item (:roll re)))])
 
 (defn page []
-  [:div.main-content.log
-   [:div.content-wrapper
-    [:h2.main-title "Throws"]
-    (doall (map result-item (get-log)))]
-   [:div.footer-actions.c2-col
-    [:a.btn.btn-primary {:href "#/roll"} [:span.fa.fa-angle-left] [:span "Back"]]
-    " "
-    [:a.btn.btn-secondary {:href "#" :on-click clear-button} [:span "Clear"]]]])
+  (fn []
+    (js/console.log "rendering")
+    [:div.main-content.log
+     [:div.content-wrapper
+      [:h2.main-title "Throws"]
+      (doall (map result-item (get-log)))]
+     [:div.footer-actions.c2-col
+      [:a.btn.btn-primary {:href "#/roll"} [:span "Back"]]
+      " "
+      [:a.btn.btn-secondary {:href "#" :on-click clear-button} [:span "Clear"]]]]))
