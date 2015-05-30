@@ -14,7 +14,7 @@
       [:span color]]
      [:div.close [:a {:href "#"
                       :on-click (partial remove-dice id)}
-                  [:span.fa.fa-close]]]]))
+                  [:span.fa.fa-close " REMOVE"]]]]))
 
 (defn page []
   ;; emtpy start is ugly...
@@ -24,8 +24,9 @@
   (reset-throw-number)
   (fn []
     [:div.main-content
-     [:h2.main-title "Choose a dice"]
-     (doall (map dice-partial (get-dices)))
+     [:div.content-wrapper
+      [:h2.main-title "Choose your dice"]
+      (doall (map dice-partial (get-dices)))]
      [:div.footer-actions.c2-col
       [:a.btn.btn-primary {:href "#"
                            :on-click insert-dice} [:span "ADD"]]

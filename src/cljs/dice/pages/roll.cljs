@@ -6,7 +6,7 @@
    [:span.number (:number r)]])
 
 (defn result-pair [rpair]
-  [:div.dice-row
+  [:div.dice-row.center
    (doall (map result-item rpair))])
 
 (defn page []
@@ -14,15 +14,16 @@
     (re-roll))
   (fn []
     [:div.main-content
-     [:h2.main-title "Throw " (get-throw-number)]
-     ;; [:div.dice-row.blue [:div.dice.xl [:span.number "5"]]]
-     (let [result (get-result)
-           n (count result)]
-       (js/console.log (str result))
-       (doall (map result-pair (partition 2 2 nil result))))
+     [:div.content-wrapper
+      [:h2.main-title "Throw " (get-throw-number)]
+      ;; [:div.dice-row.blue [:div.dice.xl [:span.number "5"]]]
+      (let [result (get-result)
+            n (count result)]
+        (js/console.log (str result))
+        (doall (map result-pair (partition 2 2 nil result))))]
 
      [:div.footer-actions.c3-col
-      [:a.btn.btn-primary {:href "#/"} [:span.fa.fa-angle-left] [:span "Back"]]
+      [:a.btn.btn-primary {:href "#/"} [:span "Back"]]
       " "
       [:a.btn.btn-secondary {:href "#/roll"
                              :on-click re-roll} [:span "REROLL"]]

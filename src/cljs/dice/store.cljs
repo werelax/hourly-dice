@@ -4,7 +4,7 @@
 ;; -------------------------
 ;; Initial data
 (reset! state {:data {:dices [] :log [] :result nil :throws 0}
-               :config {:colors ["green" "blue" "orange" "pink"]
+               :config {:colors ["green" "blue" "orange" "pink" "yellow"]
                         :sides [6 8 12 20 4]}})
 
 (defonce id (atom 0))
