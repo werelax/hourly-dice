@@ -20,4 +20,4 @@ Absolutely. *If* you want to master your *tools* and get *fast* with the *repeti
 
 ## Will you do more exercises like this one?
 
-Oh, yes. Many more. And not everyone of clojurescript. I'll keep doing this one-hour mini-hackathons for they have proved their usefulness. There are many, many tools and processes and libraries and techniques and processes around us that demands regular sharpening ;)
+Oh, yes. Many more. And not everyone of clojurescript. I'll keep doing this one-hour mini-hackathons for they have proved their usefulness. There are many, many tools and processes and libraries and techniques around us that demands regular sharpening ;)
