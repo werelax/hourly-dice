@@ -31,4 +31,5 @@
       [:a.btn.btn-primary {:href "#"
                            :on-click insert-dice} [:span "ADD"]]
       " "
-      [:a.btn.btn-secondary {:href "#/roll"} [:span "ROLL"]]]]))
+      (when-not (empty? (get-dices))
+        [:a.btn.btn-secondary {:href "#/roll"} [:span "ROLL"]])]]))
